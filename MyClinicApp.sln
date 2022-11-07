@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы Решен
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{25CD43F7-1E79-4F7A-A990-6923FD8AA950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClinicApp.DAL", "MyClinicApp.DAL\MyClinicApp.DAL.csproj", "{92FE0030-79DD-493B-A090-3220E94F36CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,12 +32,17 @@ Global
 		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92FE0030-79DD-493B-A090-3220E94F36CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92FE0030-79DD-493B-A090-3220E94F36CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92FE0030-79DD-493B-A090-3220E94F36CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92FE0030-79DD-493B-A090-3220E94F36CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5} = {E0DDCEB4-E88C-4FEB-8F57-C992237D234D}
+		{92FE0030-79DD-493B-A090-3220E94F36CE} = {25CD43F7-1E79-4F7A-A990-6923FD8AA950}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8BB48A-DD02-4B07-94F8-3B1B1E621BFC}

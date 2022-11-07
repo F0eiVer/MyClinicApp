@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyClinicApp.DAL;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyClinicApp
 {
@@ -24,6 +27,10 @@ namespace MyClinicApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDBContext>(options =>
+                options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
