@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClinicApp", "MyClinicApp\MyClinicApp.csproj", "{C402CD39-F997-48EF-BAC3-B8C870CD96AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E0DDCEB4-E88C-4FEB-8F57-C992237D234D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClinicApp.Domain", "MyClinicApp.Domain\MyClinicApp.Domain.csproj", "{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{C402CD39-F997-48EF-BAC3-B8C870CD96AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C402CD39-F997-48EF-BAC3-B8C870CD96AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C402CD39-F997-48EF-BAC3-B8C870CD96AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8BAAAE8-B5B5-4108-9054-5A7EE957F0B5} = {E0DDCEB4-E88C-4FEB-8F57-C992237D234D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8BB48A-DD02-4B07-94F8-3B1B1E621BFC}
