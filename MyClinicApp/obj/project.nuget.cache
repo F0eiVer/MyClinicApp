@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7A1jtNSxa6EmK7qDdzex1h1BboCGnr9m+Elgu7mTWDG0IrOB4likrkaNPoBQAkKM2RyShiK1tmw0m5vhwZFaOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp\\MyClinicApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
