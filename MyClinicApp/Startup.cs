@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using MyClinicApp.DAL;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using MyClinicApp.DAL.Interfaces;
+using MyClinicApp.DAL.Repositories;
 
 namespace MyClinicApp
 {
@@ -31,6 +33,8 @@ namespace MyClinicApp
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDBContext>(options =>
                 options.UseSqlServer(connection));
+
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
