@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MyClinicApp.DAL\MyClinicApp.DAL.csproj" />
     <ProjectReference Include="..\MyClinicApp.Domain\MyClinicApp.Domain.csproj" />
+    <ProjectReference Include="..\MyClinicApp.Service\MyClinicApp.Service.csproj" />
   </ItemGroup>
 
 </Project>

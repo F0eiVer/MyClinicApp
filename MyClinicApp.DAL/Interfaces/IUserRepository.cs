@@ -9,8 +9,8 @@ namespace MyClinicApp.DAL.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        User GetUserByLogin(string login);
+        Task<User> GetUserByLogin(string login);
 
-        bool HaveUserByLoginAndPassword(string login, string password);
+        Task<bool> HaveUserByLoginAndPassword(string login, string password);
     }
 }

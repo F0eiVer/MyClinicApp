@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyClinicApp.Domain.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,14 @@ namespace MyClinicApp.DAL.Interfaces
 {
     public interface IBaseRepository<T>
     {
-        bool Create(T entity);
+        Task<User> Create(User entity);
 
-        T Get(ulong id);
+        Task<User> Create(UserParams userParams);
 
-        IEnumerable<T> Select();
+        Task<T> Get(ulong id);
+
+        Task<List<T>> Select();
         
-        bool Delete(T entity);
+        Task<bool> Delete(T entity);
     }
 }

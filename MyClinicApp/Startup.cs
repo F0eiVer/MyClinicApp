@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.DAL.Repositories;
+using MyClinicApp.Service.Interfaces;
+using MyClinicApp.Service.Implementations;
 
 namespace MyClinicApp
 {
@@ -35,6 +37,7 @@ namespace MyClinicApp
                 options.UseSqlServer(connection));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

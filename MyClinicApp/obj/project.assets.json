@@ -1712,6 +1712,19 @@
         "runtime": {
           "bin/placeholder/MyClinicApp.Domain.dll": {}
         }
+      },
+      "MyClinicApp.Service/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MyClinicApp.DAL": "1.0.0",
+          "MyClinicApp.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyClinicApp.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyClinicApp.Service.dll": {}
+        }
       }
     }
   },
@@ -5898,6 +5911,11 @@
       "type": "project",
       "path": "../MyClinicApp.Domain/MyClinicApp.Domain.csproj",
       "msbuildProject": "../MyClinicApp.Domain/MyClinicApp.Domain.csproj"
+    },
+    "MyClinicApp.Service/1.0.0": {
+      "type": "project",
+      "path": "../MyClinicApp.Service/MyClinicApp.Service.csproj",
+      "msbuildProject": "../MyClinicApp.Service/MyClinicApp.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5905,7 +5923,8 @@
       "Microsoft.EntityFrameworkCore >= 3.1.30",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.30",
       "MyClinicApp.DAL >= 1.0.0",
-      "MyClinicApp.Domain >= 1.0.0"
+      "MyClinicApp.Domain >= 1.0.0",
+      "MyClinicApp.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5940,6 +5959,9 @@
             },
             "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj": {
               "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj"
+            },
+            "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj"
             }
           }
         }
@@ -5988,7 +6010,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

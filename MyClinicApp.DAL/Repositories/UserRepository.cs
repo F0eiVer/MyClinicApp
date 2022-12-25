@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyClinicApp.Domain.Classes;
+﻿using Microsoft.EntityFrameworkCore;
 using MyClinicApp.DAL.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using MyClinicApp.Domain.Classes;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MyClinicApp.DAL.Repositories
 {
@@ -18,34 +16,53 @@ namespace MyClinicApp.DAL.Repositories
             _db = db;
         }
 
-        public bool Create(User entity)
+        public async Task<User> Create(User entity)
         {
-            throw new NotImplementedException();
+            await _db.Users.AddAsync(entity);
+            await _db.SaveChangesAsync();
+
+            return entity;
         }
 
-        public bool Delete(User entity)
+       
+        public async Task<User> Create(UserParams userParams)
         {
-            throw new NotImplementedException();
+            User entity = new User(userParams);
+            await _db.Users.AddAsync(entity);
+            await _db.SaveChangesAsync();
+
+            return entity;
         }
 
-        public User Get(ulong id)
+        public async Task<bool> Delete(User entity)
         {
-            throw new NotImplementedException();
+            _db.Users.Remove(entity);
+            await _db.SaveChangesAsync();
+            return true;
         }
 
-        public User GetUserByLogin(string login)
+        public async Task<User> Get(ulong id)
         {
-            throw new NotImplementedException();
+            return await _db.Users.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public bool HaveUserByLoginAndPassword(string login, string password)
+        public async Task<User> GetUserByLogin(string login)
         {
-            throw new NotImplementedException();
+            return await _db.Users.FirstOrDefaultAsync(x => x.Login == login);
         }
 
-        public Task<List<User>> Select()
+        public async Task<bool> HaveUserByLoginAndPassword(string login, string password)
         {
-            return _db.Users.ToListAsync(); // get database like a list;
+            if(await _db.Users.FindAsync(login, password) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<List<User>> Select()
+        {
+            return await _db.Users.ToListAsync();
         }
     }
 }
