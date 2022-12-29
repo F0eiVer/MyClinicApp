@@ -32,10 +32,6 @@ namespace MyClinicApp
         {
             services.AddControllersWithViews();
 
-            var connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDBContext>(options =>
-                options.UseSqlServer(connection));
-
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
         }

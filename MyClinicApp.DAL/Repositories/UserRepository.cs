@@ -18,51 +18,39 @@ namespace MyClinicApp.DAL.Repositories
 
         public async Task<User> Create(User entity)
         {
-            await _db.Users.AddAsync(entity);
-            await _db.SaveChangesAsync();
 
-            return entity;
+            throw new NotImplementedException();
         }
 
        
         public async Task<User> Create(UserParams userParams)
         {
-            User entity = new User(userParams);
-            await _db.Users.AddAsync(entity);
-            await _db.SaveChangesAsync();
-
-            return entity;
+            throw new NotImplementedException();
         }
 
         public async Task<bool> Delete(User entity)
         {
-            _db.Users.Remove(entity);
-            await _db.SaveChangesAsync();
-            return true;
+            throw new NotImplementedException();
         }
 
         public async Task<User> Get(ulong id)
         {
-            return await _db.Users.FirstOrDefaultAsync(x => x.ID == id);
+            throw new NotImplementedException();
         }
 
         public async Task<User> GetUserByLogin(string login)
         {
-            return await _db.Users.FirstOrDefaultAsync(x => x.Login == login);
+            throw new NotImplementedException();
         }
 
         public async Task<bool> HaveUserByLoginAndPassword(string login, string password)
         {
-            if(await _db.Users.FindAsync(login, password) != null)
-            {
-                return true;
-            }
-            return false;
+            throw new NotImplementedException();
         }
 
         public async Task<List<User>> Select()
         {
-            return await _db.Users.ToListAsync();
+            throw new NotImplementedException();
         }
     }
 }

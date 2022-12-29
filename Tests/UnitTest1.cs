@@ -103,6 +103,5 @@ namespace Tests
             Assert.Equal("Ќе найден пользователь с таким логином.", res.Description);
         }
 
-
     }
 }
