@@ -28,7 +28,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (entity == null)
                 {
-                    baseResponse.Description = "Нет параметра для создания пользователя.";
+                    baseResponse.Description = "There is no parameter for creating a user.";
                     baseResponse.StatusCode = StatusCode.DoesNotHaveImpl;
 
                     return baseResponse;
@@ -57,7 +57,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (userParams == null)
                 {
-                    baseResponse.Description = "Неверный параметр для создания пользователя.";
+                    baseResponse.Description = "There is no parameter for creating a user.";
                     baseResponse.StatusCode = StatusCode.DoesNotHaveImpl;
 
                     return baseResponse;
@@ -87,7 +87,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (entity == null)
                 {
-                    baseResponse.Description = "Не задан пользователь для удаления.";
+                    baseResponse.Description = "No user is specified for deletion.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetUser;
                     return baseResponse;
                 }
@@ -114,7 +114,7 @@ namespace MyClinicApp.Service.Implementations
                 var res = await userRespository.Get(id);
                 if(res == null)
                 {
-                    baseResponse.Description = "Пользователь не найден";
+                    baseResponse.Description = "The user was not found.";
                     baseResponse.StatusCode = StatusCode.DoesNotFind;
                     return baseResponse;
                 }
@@ -140,13 +140,13 @@ namespace MyClinicApp.Service.Implementations
                 var user = await userRespository.GetUserByLogin(login);
                 if (login == string.Empty)
                 {
-                    baseResponse.Description = "Не задан логин пользователя.";
+                    baseResponse.Description = "The user's login was not set.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetLogin;
                     return baseResponse;
                 }
                 else if (user == null)
                 {
-                    baseResponse.Description = "Не найден пользователь с таким логином.";
+                    baseResponse.Description = "No user with this login was found.";
                     baseResponse.StatusCode = StatusCode.DoesNotFind;
                     return baseResponse;
                 }
@@ -172,13 +172,13 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (login == string.Empty)
                 {
-                    baseResponse.Description = "Не задан логин пользователя.";
+                    baseResponse.Description = "The user's login was not set.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetLogin;
                     return baseResponse;
                 }
                 else if (password == string.Empty)
                 {
-                    baseResponse.Description = "Не задан пароль пользователя.";
+                    baseResponse.Description = "The user's password was not set.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetPassword;
                     return baseResponse;
                 }
@@ -209,7 +209,7 @@ namespace MyClinicApp.Service.Implementations
                 var users = await userRespository.Select();
                 if (users.Count == 0)
                 {
-                    baseResponse.Description = "Нет пользователей в базе данных";
+                    baseResponse.Description = "There are no users in the database.";
                     //Possible 404 code in the future;
                     baseResponse.StatusCode = StatusCode.OK;
                     return baseResponse;

@@ -27,7 +27,7 @@ namespace Tests
             var res = await userService.GetUserByLogin(string.Empty);
             
             Assert.True(res.StatusCode == StatusCode.DoesNotSetLogin);
-            Assert.Equal("Не задан логин пользователя.", res.Description);
+            Assert.Equal("The user's login was not set.", res.Description);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace Tests
             var res = await userService.GetUserByLogin("qwertyuiop");
 
             Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("Не найден пользователь с таким логином.", res.Description);
+            Assert.Equal("No user with this login was found.", res.Description);
         }
 
         [Fact]
@@ -47,12 +47,12 @@ namespace Tests
             var res = await userService.HaveUserByLoginAndPassword(string.Empty, password);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetLogin);
-            Assert.Equal("Не задан логин пользователя.", res.Description);
+            Assert.Equal("The user's login was not set.", res.Description);
 
             res = await userService.HaveUserByLoginAndPassword(string.Empty, string.Empty);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetLogin);
-            Assert.Equal("Не задан логин пользователя.", res.Description);
+            Assert.Equal("The user's login was not set.", res.Description);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace Tests
             var res = await userService.HaveUserByLoginAndPassword(login, string.Empty);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetPassword);
-            Assert.Equal("Не задан пароль пользователя.", res.Description);
+            Assert.Equal("The user's password was not set.", res.Description);
 
         }
 
@@ -73,13 +73,13 @@ namespace Tests
             var res = await userService.Create(user);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotHaveImpl);
-            Assert.Equal("Неверный параметр для создания пользователя.", res.Description);
+            Assert.Equal("There is no parameter for creating a user.", res.Description);
 
             UserParams userParams = null;
             res = await userService.Create(userParams);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotHaveImpl);
-            Assert.Equal("Неверный параметр для создания пользователя.", res.Description);
+            Assert.Equal("There is no parameter for creating a user.", res.Description);
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace Tests
             var res = await userService.Delete(user);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetUser);
-            Assert.Equal("Не задан пользователь для удаления.", res.Description);
+            Assert.Equal("No user is specified for deletion.", res.Description);
 
         }
 
@@ -100,7 +100,7 @@ namespace Tests
             var res = await userService.Get(23);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("Не найден пользователь с таким логином.", res.Description);
+            Assert.Equal("The user was not found.", res.Description);
         }
 
     }
