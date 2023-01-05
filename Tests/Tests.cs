@@ -104,4 +104,19 @@ namespace Tests
         }
 
     }
+
+    public class DoctorTests
+    {
+
+    }
+
+    public class AppointmentTests
+    {
+
+    }
+
+    public class TimetableTests
+    {
+
+    }
 }
