@@ -4,6 +4,62 @@
     "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp\\MyClinicApp.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj",
+        "projectName": "MyClinicApp.DAL",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj",
+        "projectName": "MyClinicApp.Domain",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj",
+        "projectName": "MyClinicApp.Service",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp\\MyClinicApp.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +83,17 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,6 +105,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.30, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.30, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
