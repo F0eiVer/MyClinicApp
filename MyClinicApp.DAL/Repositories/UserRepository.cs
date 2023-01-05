@@ -9,11 +9,10 @@ namespace MyClinicApp.DAL.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDBContext _db;
 
-        public UserRepository(ApplicationDBContext db)
+        public UserRepository()
         {
-            _db = db;
+            throw new NotImplementedException();
         }
 
         public async Task<User> Create(User entity)

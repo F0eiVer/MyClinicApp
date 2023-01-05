@@ -10,12 +10,12 @@ using MyClinicApp.Domain.Classes;
 
 namespace Tests
 {
-    public class UnitTest1
+    public class UserTests
     {
         private readonly UserService userService;
         private readonly Mock<IUserRepository> userRepositoryMock;
 
-        public UnitTest1()
+        public UserTests()
         {
             this.userRepositoryMock = new Mock<IUserRepository>();
             this.userService = new UserService(userRepositoryMock.Object);

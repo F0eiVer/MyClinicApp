@@ -9,7 +9,7 @@ namespace MyClinicApp.Domain.Classes
 
     public class UserParams
     {
-        public string passord { get; set; }
+        public string Password { get; set; }
         public ulong ID { get; set; }
         public ulong PhoneNumber { get; set; }
         public string FullName { get; set; }
@@ -18,25 +18,25 @@ namespace MyClinicApp.Domain.Classes
     }
     public class User
     {
-        private string Passord;
+        private string Password;
         public ulong ID { get; set; }
         public ulong PhoneNumber { get; set; }
         public string FullName { get; set; }
         public string Login { get; set; }
         public Role Role { get; set; }
 
-        public User(string passord, ulong iD, string fullName, string login, ulong phoneNumber = 0, Role role = null)
+        public User(string _Passord, ulong _ID, string _FullName, string _Login, ulong _PhoneNumber = 0, Role _Role = null)
         {
-            Passord = passord;
-            ID = iD;
-            PhoneNumber = phoneNumber;
-            FullName = fullName;
-            Login = login;
-            Role = role;
+            Password = _Passord;
+            ID = _ID;
+            PhoneNumber = _PhoneNumber;
+            FullName = _FullName;
+            Login = _Login;
+            Role = _Role;
         }
         public User(UserParams userParams)
         {
-            Passord = userParams.passord;
+            Password = userParams.Password;
             ID = userParams.ID;
             PhoneNumber = userParams.PhoneNumber;
             FullName = userParams.FullName;
