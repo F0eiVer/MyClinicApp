@@ -57,7 +57,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (doctor == null)
                 {
-                    baseResponse.Description = "No doctor is specified for deletion.";
+                    baseResponse.Description = "doctor is not specified for deletion.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetDoctor;
                     return baseResponse;
                 }

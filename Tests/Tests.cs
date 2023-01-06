@@ -133,7 +133,7 @@ namespace Tests
             var res = await doctorService.Delete(doctor);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("No doctor is specified for deletion.", res.Description);
+            Assert.Equal("doctor is not specified for deletion.", res.Description);
 
         }
 
@@ -165,6 +165,61 @@ namespace Tests
 
     public class TimetableTests
     {
+        private readonly TimetableService timetableService;
+        private readonly Mock<ITimetableRepository> timetableRepositoryMock;
 
+        public TimetableTests()
+        {
+            timetableRepositoryMock = new Mock<ITimetableRepository>();
+            timetableService = new TimetableService(timetableRepositoryMock.Object);
+        }
+
+        [Fact]
+        public async void GetDoctorTimetableWithNull()
+        {
+            DateTime dateTime = new DateTime(1,1,1,1,1,1);
+            var res = await timetableService.GetDoctorTimetableOnDate(null, dateTime);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
+            Assert.Equal("Doctor is not specified for deletion.", res.Description);
+
+        }
+
+        [Fact]
+        public async void GetTimetableNotFound()
+        {
+            timetableRepositoryMock.Setup(repository => repository.GetDoctorTimetableOnDate(It.IsAny<Doctor>(), It.IsAny<DateTime>())).Returns(() => null);
+            DateTime dateTime = new DateTime(1, 1, 1, 1, 1, 1);
+            Doctor doctor = new Doctor();
+            doctor.ID = 1;
+            doctor.FullName = "Bob";
+            var res = await timetableService.GetDoctorTimetableOnDate(doctor , dateTime);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
+            Assert.Equal("Does not find doctor's timetable with such date.", res.Description);
+        }
+
+        [Fact]
+        public async void AddDoctorTimetableWithNull()
+        {
+            var res = await timetableService.AddDoctorTimetable(null);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetTimetable);
+            Assert.Equal("Does not set the timetable.", res.Description);
+        }
+
+        [Fact]
+        public async void ChangeDoctorTimetableWithNull()
+        {
+            var res = await timetableService.ChangeDoctorTimetable(null, new Timetable());
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
+            Assert.Equal("Doctor is not specified for deletion.", res.Description);
+
+            res = await timetableService.ChangeDoctorTimetable(new Doctor(), null);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetTimetable);
+            Assert.Equal("Does not set the timetable.", res.Description);
+        }
     }
 }
