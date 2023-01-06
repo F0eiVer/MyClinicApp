@@ -17,8 +17,8 @@ namespace Tests
 
         public UserTests()
         {
-            this.userRepositoryMock = new Mock<IUserRepository>();
-            this.userService = new UserService(userRepositoryMock.Object);
+            userRepositoryMock = new Mock<IUserRepository>();
+            userService = new UserService(userRepositoryMock.Object);
         }
 
         [Fact]
@@ -107,6 +107,54 @@ namespace Tests
 
     public class DoctorTests
     {
+        private readonly DoctorService doctorService;
+        private readonly Mock<IDoctorRepository> doctorRepositoryMock;
+
+        public DoctorTests()
+        {
+            doctorRepositoryMock = new Mock<IDoctorRepository>();
+            doctorService = new DoctorService(doctorRepositoryMock.Object);
+        }
+
+        [Fact]
+        public async void CreateDoctorWithNull()
+        {
+            Doctor doctor = null;
+            var res = await doctorService.Create(doctor);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotHaveImpl);
+            Assert.Equal("There is no parameter for creating a doctor.", res.Description);
+        }
+
+        [Fact]
+        public async void DeleteDoctorWithNull()
+        {
+            Doctor doctor = null;
+            var res = await doctorService.Delete(doctor);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
+            Assert.Equal("No doctor is specified for deletion.", res.Description);
+
+        }
+
+        [Fact]
+        public async void GetUserNotFound()
+        {
+            doctorRepositoryMock.Setup(repository => repository.Get(It.IsAny<ulong>())).Returns(() => null);
+            var res = await doctorService.Get(23);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
+            Assert.Equal("The doctor was not found.", res.Description);
+        }
+
+        [Fact]
+        public async void SpecializationNull()
+        {
+            var res = await doctorService.GetDoctorBySpecialization(null);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetSpecialization);
+            Assert.Equal("Does not set the specialization.", res.Description);
+        }
 
     }
 
