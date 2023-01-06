@@ -9,9 +9,7 @@ namespace MyClinicApp.DAL.Interfaces
 {
     public interface IBaseRepository<T>
     {
-        Task<User> Create(User entity);
-
-        Task<User> Create(UserParams userParams);
+        Task<T> Create(T entity);
 
         Task<T> Get(ulong id);
 
