@@ -119,11 +119,10 @@ namespace Tests
         [Fact]
         public async void CreateDoctorWithNull()
         {
-            Doctor doctor = null;
-            var res = await doctorService.Create(doctor);
+            var res = await doctorService.Create(null);
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotHaveImpl);
-            Assert.Equal("There is no parameter for creating a doctor.", res.Description);
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
+            Assert.Equal("Doctor is not specified for creation.", res.Description);
         }
 
         [Fact]
@@ -133,7 +132,7 @@ namespace Tests
             var res = await doctorService.Delete(doctor);
 
             Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("doctor is not specified for deletion.", res.Description);
+            Assert.Equal("Doctor is not specified for deletion.", res.Description);
 
         }
 
@@ -160,7 +159,42 @@ namespace Tests
 
     public class AppointmentTests
     {
+        private readonly AppointmentService appointmentService;
+        private readonly Mock<IAppointmentRepository> appointmentRepositoryMock;
 
+        public AppointmentTests()
+        {
+            appointmentRepositoryMock = new Mock<IAppointmentRepository>();
+            appointmentService = new AppointmentService(appointmentRepositoryMock.Object);
+        }
+
+        [Fact]
+        public async void SaveAppointmentWithNull()
+        {
+            var res = await appointmentService.SaveAppointment(null, new DateTime());
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetAppointment);
+            Assert.Equal("Appointment is not specified for deletion.", res.Description);
+        }
+
+        [Fact]
+        public async void GetFreeDatesWithNll()
+        {
+            var res = await appointmentService.GetFreeDatesBySpecialization(null);
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotSetSpecialization);
+            Assert.Equal("Specialization is not specified for deletion.", res.Description);
+        }
+
+        [Fact]
+        public async void GetFreeDatesNotFound()
+        {
+            appointmentRepositoryMock.Setup(repository => repository.GetFreeDatesBySpecialization(It.IsAny<Specialization>())).Returns(() => null);
+            var res = await appointmentService.GetFreeDatesBySpecialization(new Specialization());
+
+            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
+            Assert.Equal("There are no dates with this specialization.", res.Description);
+        }
     }
 
     public class TimetableTests

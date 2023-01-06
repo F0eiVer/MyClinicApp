@@ -28,8 +28,8 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (doctor == null)
                 {
-                    baseResponse.Description = "There is no parameter for creating a doctor.";
-                    baseResponse.StatusCode = StatusCode.DoesNotHaveImpl;
+                    baseResponse.Description = "Doctor is not specified for creation.";
+                    baseResponse.StatusCode = StatusCode.DoesNotSetDoctor;
 
                     return baseResponse;
                 }
@@ -57,7 +57,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 if (doctor == null)
                 {
-                    baseResponse.Description = "doctor is not specified for deletion.";
+                    baseResponse.Description = "Doctor is not specified for deletion.";
                     baseResponse.StatusCode = StatusCode.DoesNotSetDoctor;
                     return baseResponse;
                 }

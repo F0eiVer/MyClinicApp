@@ -3,6 +3,7 @@ using MyClinicApp.DAL.Repositories;
 using MyClinicApp.Domain.Classes;
 using MyClinicApp.Domain.Enum;
 using MyClinicApp.Domain.Response;
+using MyClinicApp.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MyClinicApp.Service.Implementations
 {
-    public class TimetableService
+    public class TimetableService : ITimetableService
     {
         private readonly ITimetableRepository timetableRespository;
 

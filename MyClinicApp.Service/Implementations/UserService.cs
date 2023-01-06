@@ -202,7 +202,6 @@ namespace MyClinicApp.Service.Implementations
 
         public async Task<IBaseResponse<IEnumerable<User>>> GetUsers()
         {
-
             var baseResponse = new BaseResponse<IEnumerable<User>>();
             try
             {

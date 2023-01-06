@@ -12,7 +12,7 @@ namespace MyClinicApp.DAL.Interfaces
         Task<bool> SaveAppointment(Appointment appointment, DateTime date);
         //will use date.ToShortDateString() to receive the date without time
 
-        Task<List<DateTime>> GetFreeDateBySpecialization(Specialization specialization);
+        Task<List<DateTime>> GetFreeDatesBySpecialization(Specialization specialization);
         //maybe it will have to convert date from database to DateTime class
     }
 }
