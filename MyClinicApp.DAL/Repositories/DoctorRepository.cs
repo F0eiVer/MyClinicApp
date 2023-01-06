@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyClinicApp.DAL.Repositories
 {
-    public class DoctorRepository : IDoctorRepository
+    public class DoctorRepository
     {
     }
 }

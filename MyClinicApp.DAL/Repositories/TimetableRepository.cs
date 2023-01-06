@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyClinicApp.DAL.Repositories
 {
-    public class TimetableRepository : ITimetableRepository
+    public class TimetableRepository
     {
     }
 }
