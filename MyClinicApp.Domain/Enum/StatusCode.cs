@@ -19,5 +19,6 @@ namespace MyClinicApp.Domain.Enum
         DoesNotHaveImpl = 411,
         DoesNotSetUser = 412,
         DoesNotSetDoctor = 413,
+        TakenDate = 414
     }
 }

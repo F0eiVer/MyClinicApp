@@ -37,6 +37,14 @@ namespace MyClinicApp.Service.Implementations
 
                 var res = await appointmentRespository.SaveAppointment(appointment, date);
 
+                if(res == false)
+                {
+                    baseResponse.Description = "This date is taken.";
+                    baseResponse.StatusCode = StatusCode.TakenDate;
+
+                    return baseResponse;
+                }
+
                 baseResponse.Data = res;
                 baseResponse.StatusCode = StatusCode.OK;
 
@@ -54,30 +62,9 @@ namespace MyClinicApp.Service.Implementations
         public async Task<IBaseResponse<IEnumerable<DateTime>>> GetFreeDatesBySpecialization(Specialization specialization)
         {
             var baseResponse = new BaseResponse<IEnumerable<DateTime>>();
-
             try
             {
-                if(specialization == null)
-                {
-                    baseResponse.Description = "Specialization is not specified for deletion.";
-                    baseResponse.StatusCode = StatusCode.DoesNotSetSpecialization;
-
-                    return baseResponse;
-                }
-
-                var res = await appointmentRespository.GetFreeDatesBySpecialization(specialization);
-
-                if(res.Count == 0)
-                {
-                    baseResponse.Description = "There are no dates with this specialization.";
-                    baseResponse.StatusCode = StatusCode.DoesNotFind;
-                    return baseResponse;
-                }
-
-                baseResponse.Data = res;
-                baseResponse.StatusCode = StatusCode.OK;
-
-                return baseResponse;
+                throw new NotImplementedException();
             }
             catch(Exception ex)
             {

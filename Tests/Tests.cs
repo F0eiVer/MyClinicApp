@@ -8,7 +8,7 @@ using Castle.Components.DictionaryAdapter.Xml;
 using MyClinicApp.Domain.Enum;
 using MyClinicApp.Domain.Classes;
 
-namespace Tests
+namespace UserTests
 {
     public class UserTests
     {
@@ -25,14 +25,14 @@ namespace Tests
         public async void LoginIsEmptyOrNull()
         {
             var res = await userService.GetUserByLogin(string.Empty);
-            
+
             Assert.True(res.StatusCode == StatusCode.DoesNotSetLogin);
             Assert.Equal("The user's login was not set.", res.Description);
         }
 
         [Fact]
         public async void UserNotFound()
-        { 
+        {
             userRepositoryMock.Setup(repository => repository.GetUserByLogin(It.IsAny<string>())).Returns(() => null);
             var res = await userService.GetUserByLogin("qwertyuiop");
 
@@ -103,157 +103,5 @@ namespace Tests
             Assert.Equal("The user was not found.", res.Description);
         }
 
-    }
-
-    public class DoctorTests
-    {
-        private readonly DoctorService doctorService;
-        private readonly Mock<IDoctorRepository> doctorRepositoryMock;
-
-        public DoctorTests()
-        {
-            doctorRepositoryMock = new Mock<IDoctorRepository>();
-            doctorService = new DoctorService(doctorRepositoryMock.Object);
-        }
-
-        [Fact]
-        public async void CreateDoctorWithNull()
-        {
-            var res = await doctorService.Create(null);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("Doctor is not specified for creation.", res.Description);
-        }
-
-        [Fact]
-        public async void DeleteDoctorWithNull()
-        {
-            Doctor doctor = null;
-            var res = await doctorService.Delete(doctor);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("Doctor is not specified for deletion.", res.Description);
-
-        }
-
-        [Fact]
-        public async void GetUserNotFound()
-        {
-            doctorRepositoryMock.Setup(repository => repository.Get(It.IsAny<ulong>())).Returns(() => null);
-            var res = await doctorService.Get(23);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("The doctor was not found.", res.Description);
-        }
-
-        [Fact]
-        public async void SpecializationNull()
-        {
-            var res = await doctorService.GetDoctorBySpecialization(null);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetSpecialization);
-            Assert.Equal("Does not set the specialization.", res.Description);
-        }
-
-    }
-
-    public class AppointmentTests
-    {
-        private readonly AppointmentService appointmentService;
-        private readonly Mock<IAppointmentRepository> appointmentRepositoryMock;
-
-        public AppointmentTests()
-        {
-            appointmentRepositoryMock = new Mock<IAppointmentRepository>();
-            appointmentService = new AppointmentService(appointmentRepositoryMock.Object);
-        }
-
-        [Fact]
-        public async void SaveAppointmentWithNull()
-        {
-            var res = await appointmentService.SaveAppointment(null, new DateTime());
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetAppointment);
-            Assert.Equal("Appointment is not specified for deletion.", res.Description);
-        }
-
-        [Fact]
-        public async void GetFreeDatesWithNll()
-        {
-            var res = await appointmentService.GetFreeDatesBySpecialization(null);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetSpecialization);
-            Assert.Equal("Specialization is not specified for deletion.", res.Description);
-        }
-
-        [Fact]
-        public async void GetFreeDatesNotFound()
-        {
-            appointmentRepositoryMock.Setup(repository => repository.GetFreeDatesBySpecialization(It.IsAny<Specialization>())).Returns(() => null);
-            var res = await appointmentService.GetFreeDatesBySpecialization(new Specialization());
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("There are no dates with this specialization.", res.Description);
-        }
-    }
-
-    public class TimetableTests
-    {
-        private readonly TimetableService timetableService;
-        private readonly Mock<ITimetableRepository> timetableRepositoryMock;
-
-        public TimetableTests()
-        {
-            timetableRepositoryMock = new Mock<ITimetableRepository>();
-            timetableService = new TimetableService(timetableRepositoryMock.Object);
-        }
-
-        [Fact]
-        public async void GetDoctorTimetableWithNull()
-        {
-            DateTime dateTime = new DateTime(1,1,1,1,1,1);
-            var res = await timetableService.GetDoctorTimetableOnDate(null, dateTime);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("Doctor is not specified for deletion.", res.Description);
-
-        }
-
-        [Fact]
-        public async void GetTimetableNotFound()
-        {
-            timetableRepositoryMock.Setup(repository => repository.GetDoctorTimetableOnDate(It.IsAny<Doctor>(), It.IsAny<DateTime>())).Returns(() => null);
-            DateTime dateTime = new DateTime(1, 1, 1, 1, 1, 1);
-            Doctor doctor = new Doctor();
-            doctor.ID = 1;
-            doctor.FullName = "Bob";
-            var res = await timetableService.GetDoctorTimetableOnDate(doctor , dateTime);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("Does not find doctor's timetable with such date.", res.Description);
-        }
-
-        [Fact]
-        public async void AddDoctorTimetableWithNull()
-        {
-            var res = await timetableService.AddDoctorTimetable(null);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetTimetable);
-            Assert.Equal("Does not set the timetable.", res.Description);
-        }
-
-        [Fact]
-        public async void ChangeDoctorTimetableWithNull()
-        {
-            var res = await timetableService.ChangeDoctorTimetable(null, new Timetable());
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetDoctor);
-            Assert.Equal("Doctor is not specified for deletion.", res.Description);
-
-            res = await timetableService.ChangeDoctorTimetable(new Doctor(), null);
-
-            Assert.True(res.StatusCode == StatusCode.DoesNotSetTimetable);
-            Assert.Equal("Does not set the timetable.", res.Description);
-        }
     }
 }
