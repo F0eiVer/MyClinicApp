@@ -11,8 +11,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyClinicApp.DAL</RootNamespace>
     <AssemblyName>MyClinicApp.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+	<LangVersion>11.0</LangVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -265,6 +267,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ApplicationDbContext.cs" />
+    <Compile Include="Classes\AppointmentModel.cs" />
+    <Compile Include="Classes\DoctorModel.cs" />
+    <Compile Include="Classes\TimetableModel.cs" />
+    <Compile Include="Classes\UserModel.cs" />
     <Compile Include="Interfaces\IAppointmentRepository.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IDoctorRepository.cs" />

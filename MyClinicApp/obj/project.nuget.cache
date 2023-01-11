@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0gJOPm8DKukE2Dr2/HPptBVfM9s9nukmF32f8IrIkdeWthsIanml2rz4rBE85c1FEyuyHSc2kpo0+F/0y3yMPQ==",
+  "dgSpecHash": "AJ8t0waXc9ll9hqI9rpy7T12Fni/826gGbApHGQ/MMP0eid+2R8I4Ur41B6lLdQhK8VpN7zlsr00Wt3td6Ov7w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp\\MyClinicApp.csproj",
   "expectedPackageFiles": [
@@ -137,8 +137,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
