@@ -45,7 +45,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<User>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}",
+                    Description = $"[Create] : {ex.Message}",
                 };
             }
         }
@@ -74,7 +74,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<User>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}",
+                    Description = $"[Create] : {ex.Message}",
                 };
             }
         }
@@ -101,7 +101,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<bool>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}"
+                    Description = $"[Delete] : {ex.Message}"
                 };
             }
         }
@@ -127,7 +127,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<User>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}"
+                    Description = $"[Get] : {ex.Message}"
                 };
             }
         }
@@ -160,7 +160,7 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<User>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}",
+                    Description = $"[GetUserByLogin] : {ex.Message}",
                 };
             }
         }
@@ -195,14 +195,13 @@ namespace MyClinicApp.Service.Implementations
             {
                 return new BaseResponse<bool>()
                 {
-                    Description = $"[GetUsers] : {ex.Message}"
+                    Description = $"[HaveUserByLoginAndPassword] : {ex.Message}"
                 };
             }
         }
 
         public async Task<IBaseResponse<IEnumerable<User>>> GetUsers()
         {
-
             var baseResponse = new BaseResponse<IEnumerable<User>>();
             try
             {

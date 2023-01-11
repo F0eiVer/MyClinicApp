@@ -11,6 +11,8 @@ namespace MyClinicApp.DAL.Interfaces
     {
         Task<User> GetUserByLogin(string login);
 
+        Task<User> Create(UserParams userParams);
+
         Task<bool> HaveUserByLoginAndPassword(string login, string password);
     }
 }

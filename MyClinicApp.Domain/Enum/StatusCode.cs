@@ -13,8 +13,12 @@ namespace MyClinicApp.Domain.Enum
         DoesNotFind = 405,
         DoesNotSetLogin = 406,
         DoesNotSetPassword = 407,
-        DoesNotHaveImpl = 408,
-        DoesNotSetUser = 409
-
+        DoesNotSetSpecialization = 408,
+        DoesNotSetTimetable = 409,
+        DoesNotSetAppointment = 410,
+        DoesNotHaveImpl = 411,
+        DoesNotSetUser = 412,
+        DoesNotSetDoctor = 413,
+        TakenDate = 414
     }
 }

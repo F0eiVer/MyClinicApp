@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyClinicApp.DAL.Interfaces
 {
-    public interface IBaseRepository<T>
+    public interface IDoctorRepository : IBaseRepository<Doctor>
     {
-        Task<T> Create(T entity);
-
-        Task<T> Get(ulong id);
-
-        Task<List<T>> Select();
-        
-        Task<bool> Delete(T entity);
+        Task<Doctor> GetDoctorBySpecialization(Specialization specialization);
+                        
     }
 }

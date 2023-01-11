@@ -43,7 +43,13 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\AppointmentService.cs" />
+    <Compile Include="Implementations\DoctorService.cs" />
+    <Compile Include="Implementations\TimetableService.cs" />
     <Compile Include="Implementations\UserService.cs" />
+    <Compile Include="Interfaces\IAppointmentService.cs" />
+    <Compile Include="Interfaces\IDoctorService.cs" />
+    <Compile Include="Interfaces\ITimetableService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
