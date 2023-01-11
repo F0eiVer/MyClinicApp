@@ -12,7 +12,7 @@
     <RootNamespace>MyClinicApp.DAL</RootNamespace>
     <AssemblyName>MyClinicApp.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-	<LangVersion>11.0</LangVersion>
+    <LangVersion>11.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -270,6 +270,10 @@
     <Compile Include="Classes\ApplicationDbContext.cs" />
     <Compile Include="Classes\AppointmentModel.cs" />
     <Compile Include="Classes\DoctorModel.cs" />
+    <Compile Include="Convert\AppointmentModelToDomainConverter.cs" />
+    <Compile Include="Convert\DoctorModelToDomainConverter.cs" />
+    <Compile Include="Convert\TimetableModelToDomainConverter.cs" />
+    <Compile Include="Convert\UserModelToDomainConverter.cs" />
     <Compile Include="Classes\TimetableModel.cs" />
     <Compile Include="Classes\UserModel.cs" />
     <Compile Include="Interfaces\IAppointmentRepository.cs" />
@@ -278,6 +282,9 @@
     <Compile Include="Interfaces\ITimetableRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AppointmentRepository.cs" />
+    <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\TimetableRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
