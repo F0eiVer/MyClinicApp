@@ -68,5 +68,22 @@ namespace MyClinicApp.DAL.Repositories
             return appointments;
         }
 
+        public async Task<bool> SaveAppointment(Appointment appointment, DateTime date)
+        {
+            AppointmentModel appointmentModel = new AppointmentModel()
+            {
+                Date = date,
+                StartTime = appointment.StartTime,
+                FinishTime = appointment.FinishTime,
+                DoctorID = appointment.DoctorID,
+                PatientID = appointment.PatientID,
+            };
+
+            await db.Appointments.AddAsync(appointmentModel);
+            await db.SaveChangesAsync();
+
+            return true;
+        }
+
     }
 }

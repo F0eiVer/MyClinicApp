@@ -65,5 +65,41 @@ namespace MyClinicApp.DAL.Repositories
             return timetables;
         }
 
+        public async Task<Timetable> GetDoctorTimetableOnDate(Doctor doctor, DateTime date)
+        {
+            var timetableModel = await db.Timetables.FirstOrDefaultAsync(x => x.Date == date && x.DoctorID == doctor.ID);
+            return timetableModel.ToDomain();
+        }
+
+        public async Task<bool> AddDoctorTimetable(Timetable timetable)
+        {
+            TimetableModel timetableModel = new TimetableModel()
+            {
+                DoctorID = timetable.DoctorID,
+                StartTime = timetable.StartTime,
+                FinishTime = timetable.FinishTime,
+            };
+
+            await db.Timetables.AddAsync(timetableModel);
+            await db.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> ChangeDoctorTimetable(Doctor doctor, Timetable timetable)
+        {
+            var timetableModel = await db.Timetables.Where(x => x.DoctorID == doctor.ID).FirstOrDefaultAsync();
+            timetableModel = new TimetableModel()
+            {
+                ID = timetableModel.ID,
+                Date = timetableModel.Date,
+                DoctorID = timetable.DoctorID,
+                StartTime = timetable.StartTime,
+                FinishTime = timetable.FinishTime,
+            };
+            await db.SaveChangesAsync();
+            return true;
+        }
+
     }
 }
