@@ -29,13 +29,13 @@
         "projectName": "MyClinicApp.Domain",
         "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Domain\\MyClinicApp.Domain.csproj",
         "frameworks": {
-          "net472": {
+          "net48": {
             "projectReferences": {}
           }
         }
       },
       "frameworks": {
-        "net472": {}
+        "net48": {}
       }
     },
     "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj": {
@@ -44,7 +44,7 @@
         "projectName": "MyClinicApp.Service",
         "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.Service\\MyClinicApp.Service.csproj",
         "frameworks": {
-          "net472": {
+          "net48": {
             "projectReferences": {
               "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj": {
                 "projectPath": "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp.DAL\\MyClinicApp.DAL.csproj"
@@ -57,7 +57,7 @@
         }
       },
       "frameworks": {
-        "net472": {}
+        "net48": {}
       }
     },
     "C:\\Users\\Admin\\source\\repos\\MyClinicApp\\MyClinicApp\\MyClinicApp.csproj": {
