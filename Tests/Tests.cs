@@ -8,7 +8,7 @@ using Castle.Components.DictionaryAdapter.Xml;
 using MyClinicApp.Domain.Enum;
 using MyClinicApp.Domain.Classes;
 
-namespace Tests
+namespace UserTests
 {
     public class UserTests
     {
@@ -17,22 +17,22 @@ namespace Tests
 
         public UserTests()
         {
-            this.userRepositoryMock = new Mock<IUserRepository>();
-            this.userService = new UserService(userRepositoryMock.Object);
+            userRepositoryMock = new Mock<IUserRepository>();
+            userService = new UserService(userRepositoryMock.Object);
         }
 
         [Fact]
         public async void LoginIsEmptyOrNull()
         {
             var res = await userService.GetUserByLogin(string.Empty);
-            
+
             Assert.True(res.StatusCode == StatusCode.DoesNotSetLogin);
             Assert.Equal("The user's login was not set.", res.Description);
         }
 
         [Fact]
         public async void UserNotFound()
-        { 
+        {
             userRepositoryMock.Setup(repository => repository.GetUserByLogin(It.IsAny<string>())).Returns(() => null);
             var res = await userService.GetUserByLogin("qwertyuiop");
 
