@@ -267,7 +267,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ApplicationDbContext.cs" />
+    <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="Classes\AppointmentModel.cs" />
     <Compile Include="Classes\DoctorModel.cs" />
     <Compile Include="Convert\AppointmentModelToDomainConverter.cs" />
@@ -276,6 +276,7 @@
     <Compile Include="Convert\UserModelToDomainConverter.cs" />
     <Compile Include="Classes\TimetableModel.cs" />
     <Compile Include="Classes\UserModel.cs" />
+    <Compile Include="DBContext\ApplicationDbContextFactory.cs" />
     <Compile Include="Interfaces\IAppointmentRepository.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IDoctorRepository.cs" />
