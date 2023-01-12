@@ -1,4 +1,6 @@
-﻿using MyClinicApp.DAL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using MyClinicApp.DAL.DBContext;
+using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.DAL.Repositories;
 using MyClinicApp.Domain.Classes;
 using MyClinicApp.Domain.Enum;
@@ -15,6 +17,7 @@ namespace MyClinicApp.Service.Implementations
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository appointmentRespository;
+        private readonly ApplicationDbContext db; //need db connection
 
         public AppointmentService(IAppointmentRepository _appointmentRepository)
         {
@@ -58,13 +61,48 @@ namespace MyClinicApp.Service.Implementations
                 };
             }
         }
-
+        
         public async Task<IBaseResponse<IEnumerable<DateTime>>> GetFreeDatesBySpecialization(Specialization specialization)
         {
             var baseResponse = new BaseResponse<IEnumerable<DateTime>>();
+            
             try
             {
-                throw new NotImplementedException();
+                if (specialization == null)
+                {
+                    baseResponse.Description = "Specialization is not specified for deletion.";
+                    baseResponse.StatusCode = StatusCode.DoesNotSetSpecialization;
+
+                    return baseResponse;
+                }
+                var doctors = await db.Doctors.Where(x => x.Specialization == specialization).ToListAsync();
+
+                if(doctors.Count == 0)
+                {
+                    baseResponse.Description = "There are no doctors with this specialization.";
+                    baseResponse.StatusCode = StatusCode.DoesNotFind;
+                    return baseResponse;
+                }
+
+                var res = await db.Appointments.Where(x => x.PatientID.Equals(null)).ToListAsync();
+
+                if(res.Count == 0)
+                {
+                    baseResponse.Description = "There are no free date for this specialization.";
+                    baseResponse.StatusCode = StatusCode.DoesNotFind;
+                    return baseResponse;
+                }
+
+                List<DateTime> dates = new List<DateTime>();
+                for(int i=0; i<res.Count; i++)
+                {
+                    dates.Add(res[i].Date);
+                }
+
+                baseResponse.Data = dates;
+                baseResponse.StatusCode = StatusCode.OK;
+
+                return baseResponse;
             }
             catch(Exception ex)
             {
@@ -74,5 +112,6 @@ namespace MyClinicApp.Service.Implementations
                 };
             }
         }
+        
     }
 }

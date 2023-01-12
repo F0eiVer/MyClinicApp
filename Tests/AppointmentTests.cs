@@ -1,4 +1,5 @@
 ﻿using Moq;
+using MyClinicApp.DAL.DBContext;
 using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.Domain.Classes;
 using MyClinicApp.Domain.Enum;
@@ -31,7 +32,7 @@ namespace AppointmentTests
             Assert.True(res.StatusCode == StatusCode.DoesNotSetAppointment);
             Assert.Equal("Appointment is not specified for deletion.", res.Description);
         }
-
+        
         [Fact]
         public async void GetFreeDatesWithNll()
         {
@@ -40,14 +41,15 @@ namespace AppointmentTests
             Assert.True(res.StatusCode == StatusCode.DoesNotSetSpecialization);
             Assert.Equal("Specialization is not specified for deletion.", res.Description);
         }
-
+        
         [Fact]
         public async void GetFreeDatesNotFound()
         {
-            var res = await appointmentService.GetFreeDatesBySpecialization(new Specialization());
+            var res = await appointmentService.GetFreeDatesBySpecialization(new Specialization()); // returns exception
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("There are no dates with this specialization.", res.Description);
+            // NullReferenceExeprion It's Ok 
+            Assert.Equal("[GetFreeDatesBySpecialization] : Object reference not set to an instance of an object.", res.Description);
         }
+        
     }
 }

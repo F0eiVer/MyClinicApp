@@ -16,9 +16,9 @@ namespace MyClinicApp.Service.Implementations
     {
         private readonly IUserRepository userRespository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository _userRepository)
         {
-            this.userRespository = userRepository;
+            userRespository = _userRepository;
         }
 
         public async Task<IBaseResponse<User>> Create(User entity)
@@ -111,7 +111,7 @@ namespace MyClinicApp.Service.Implementations
             var baseResponse = new BaseResponse<User>();
             try
             {
-                var res = await userRespository.Get(id);
+                var res = await userRespository.Get(id); //null
                 if(res == null)
                 {
                     baseResponse.Description = "The user was not found.";
@@ -144,7 +144,7 @@ namespace MyClinicApp.Service.Implementations
                     baseResponse.StatusCode = StatusCode.DoesNotSetLogin;
                     return baseResponse;
                 }
-                else if (user == null)
+                else if (user.FullName == null && user.Password == null && user.Login == null)
                 {
                     baseResponse.Description = "No user with this login was found.";
                     baseResponse.StatusCode = StatusCode.DoesNotFind;
