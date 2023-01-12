@@ -15,11 +15,14 @@ using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.DAL.Repositories;
 using MyClinicApp.Service.Interfaces;
 using MyClinicApp.Service.Implementations;
+using MyClinicApp.DAL.DBContext;
 
 namespace MyClinicApp
 {
     public class Startup
     {
+
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,8 +35,21 @@ namespace MyClinicApp
         {
             services.AddControllersWithViews();
 
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseNpgsql(connection));
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
+
+            services.AddScoped<ITimetableRepository, TimetableRepository>();
+            services.AddScoped<ITimetableService, TimetableService>();
+
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IDoctorService, DoctorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
