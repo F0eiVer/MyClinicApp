@@ -72,22 +72,22 @@ namespace MyClinicApp.DAL.Repositories
 
         public async Task<User> Get(ulong id)
         {
-            var user = await db.Users.FirstOrDefaultAsync(x => x.ID == id);
-            if (user == null)
+            var userModel = await db.Users.FirstOrDefaultAsync(x => x.ID == id);
+            if (userModel.Equals(null))
             {
                 return null;
             }
-            return user.ToDomain();
+            return userModel.ToDomain();
         }
 
         public async Task<User> GetUserByLogin(string login)
         {
-            var user = await db.Users.FirstOrDefaultAsync(x => x.Login == login);
-            if(user == null)
+            var userModel = await db.Users.FirstOrDefaultAsync(x => x.Login == login);
+            if(userModel.Equals(null))
             {
                 return null;
             }
-            return user.ToDomain();
+            return userModel.ToDomain();
         }
 
         public async Task<bool> HaveUserByLoginAndPassword(string login, string password)

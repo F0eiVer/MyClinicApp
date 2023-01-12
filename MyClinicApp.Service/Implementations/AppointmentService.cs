@@ -17,7 +17,7 @@ namespace MyClinicApp.Service.Implementations
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository appointmentRespository;
-        private readonly ApplicationDbContext db;
+        private readonly ApplicationDbContext db; //need db connection
 
         public AppointmentService(IAppointmentRepository _appointmentRepository)
         {
@@ -76,13 +76,20 @@ namespace MyClinicApp.Service.Implementations
                     return baseResponse;
                 }
                 var doctors = await db.Doctors.Where(x => x.Specialization == specialization).ToListAsync();
+
+                if(doctors.Count == 0)
+                {
+                    baseResponse.Description = "There are no doctors with this specialization.";
+                    baseResponse.StatusCode = StatusCode.DoesNotFind;
+                    return baseResponse;
+                }
+
                 var res = await db.Appointments.Where(x => x.PatientID.Equals(null)).ToListAsync();
 
                 if(res.Count == 0)
                 {
                     baseResponse.Description = "There are no free date for this specialization.";
-                    //Possible 404 code in the future;
-                    baseResponse.StatusCode = StatusCode.OK;
+                    baseResponse.StatusCode = StatusCode.DoesNotFind;
                     return baseResponse;
                 }
 

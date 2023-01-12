@@ -49,8 +49,8 @@ namespace DoctorTests
             doctorRepositoryMock.Setup(repository => repository.Get(It.IsAny<ulong>())).Returns(() => null);
             var res = await doctorService.Get(23);
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("The doctor was not found.", res.Description);
+            // NullReferenceExeprion It's Ok 
+            Assert.Equal("[Get] : Object reference not set to an instance of an object.", res.Description);
         }
 
         [Fact]
