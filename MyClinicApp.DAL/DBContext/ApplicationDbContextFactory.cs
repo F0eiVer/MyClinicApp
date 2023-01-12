@@ -17,7 +17,7 @@ namespace MyClinicApp.DAL.DBContext
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseNpgsql(
-            $"Server=localhost;Port=5432;Database=testDBClinic;Username=postgres;Password=Crjhgbjy123"
+            $"Host=localhost;Port=5432;Database=testDBClinic;Username=postgres;Password=Crjhgbjy123"
             );
 
             return new ApplicationDbContext(optionsBuilder.Options);

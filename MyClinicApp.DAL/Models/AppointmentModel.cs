@@ -9,8 +9,8 @@ namespace MyClinicApp.DAL.Models
     public class AppointmentModel
     {
         public uint ID { get; set; }
-        
         public DateTime Date { get; set; }
+
         public string StartTime { get; set; }
         public string FinishTime { get; set; }
         public ulong PatientID { get; set; }
