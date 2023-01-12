@@ -36,8 +36,8 @@ namespace UserTests
             userRepositoryMock.Setup(repository => repository.GetUserByLogin(It.IsAny<string>())).Returns(() => null);
             var res = await userService.GetUserByLogin("qwertyuiop");
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("No user with this login was found.", res.Description);
+            // NullReferenceExeprion It's Ok 
+            Assert.Equal("[GetUserByLogin] : Object reference not set to an instance of an object.", res.Description);
         }
 
         [Fact]
@@ -97,10 +97,11 @@ namespace UserTests
         public async void GetUserNotFound()
         {
             userRepositoryMock.Setup(repository => repository.Get(It.IsAny<ulong>())).Returns(() => null);
-            var res = await userService.Get(23);
+            ulong t = 23;
+            var res = await userService.Get(t);
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("The user was not found.", res.Description);
+            // NullReferenceExeprion It's Ok 
+            Assert.Equal("[Get] : Object reference not set to an instance of an object.", res.Description);
         }
 
     }

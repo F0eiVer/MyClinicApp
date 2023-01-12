@@ -144,7 +144,7 @@ namespace MyClinicApp.Service.Implementations
                     baseResponse.StatusCode = StatusCode.DoesNotSetLogin;
                     return baseResponse;
                 }
-                else if (user == null)
+                else if (user.FullName == null && user.Password == null && user.Login == null)
                 {
                     baseResponse.Description = "No user with this login was found.";
                     baseResponse.StatusCode = StatusCode.DoesNotFind;

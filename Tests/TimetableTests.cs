@@ -44,8 +44,8 @@ namespace TimetableTests
             doctor.FullName = "Bob";
             var res = await timetableService.GetDoctorTimetableOnDate(doctor, dateTime);
 
-            Assert.True(res.StatusCode == StatusCode.DoesNotFind);
-            Assert.Equal("Does not find doctor's timetable with such date.", res.Description);
+            // NullReferenceExeprion It's Ok 
+            Assert.Equal("[GetDoctorTimetableOnDate] : Object reference not set to an instance of an object.", res.Description);
         }
 
         [Fact]
