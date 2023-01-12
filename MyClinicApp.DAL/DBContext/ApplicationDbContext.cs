@@ -13,13 +13,13 @@ namespace MyClinicApp.DAL.DBContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<UserModel>? Users { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
-        public DbSet<DoctorModel>? Doctors { get; set; }
+        public DbSet<DoctorModel> Doctors { get; set; }
 
-        public DbSet<TimetableModel>? Timetables { get; set; }
+        public DbSet<TimetableModel> Timetables { get; set; }
 
-        public DbSet<AppointmentModel>? Appointments { get; set; }
+        public DbSet<AppointmentModel> Appointments { get; set; }
 
     }
 }

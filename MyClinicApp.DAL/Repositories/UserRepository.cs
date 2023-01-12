@@ -73,12 +73,20 @@ namespace MyClinicApp.DAL.Repositories
         public async Task<User> Get(ulong id)
         {
             var user = await db.Users.FirstOrDefaultAsync(x => x.ID == id);
+            if (user == null)
+            {
+                return null;
+            }
             return user.ToDomain();
         }
 
         public async Task<User> GetUserByLogin(string login)
         {
             var user = await db.Users.FirstOrDefaultAsync(x => x.Login == login);
+            if(user == null)
+            {
+                return null;
+            }
             return user.ToDomain();
         }
 

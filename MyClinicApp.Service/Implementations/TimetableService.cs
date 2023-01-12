@@ -33,7 +33,7 @@ namespace MyClinicApp.Service.Implementations
                     return baseResponse;
 
                 }
-                var res = await timetableRespository.GetDoctorTimetableOnDate(doctor, date);
+                var res = await timetableRespository.GetDoctorTimetableOnDate(doctor, date); //null
 
                 if (res == null)
                 {

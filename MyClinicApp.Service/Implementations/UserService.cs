@@ -111,7 +111,7 @@ namespace MyClinicApp.Service.Implementations
             var baseResponse = new BaseResponse<User>();
             try
             {
-                var res = await userRespository.Get(id);
+                var res = await userRespository.Get(id); //null
                 if(res == null)
                 {
                     baseResponse.Description = "The user was not found.";
