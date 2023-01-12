@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using MyClinicApp.DAL.Classes;
+using MyClinicApp.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace MyClinicApp.DAL.DBContext
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseNpgsql(
-            $"Server=localhost;Port=5432;Database=Scrubs;Username=postgres;Password=Crjhgbjy123"
+            $"Server=localhost;Port=5432;Database=testDBClinic;Username=postgres;Password=Crjhgbjy123"
             );
 
             return new ApplicationDbContext(optionsBuilder.Options);

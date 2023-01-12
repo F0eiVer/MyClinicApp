@@ -1,16 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyClinicApp.DAL.Classes;
+using MyClinicApp.DAL.Models;
 using MyClinicApp.DAL.Convert;
+using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.Domain.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyClinicApp.DAL.DBContext;
 
 namespace MyClinicApp.DAL.Repositories
 {
-    public class DoctorRepository
+    public class DoctorRepository : IDoctorRepository
     {
         private readonly ApplicationDbContext db;
 

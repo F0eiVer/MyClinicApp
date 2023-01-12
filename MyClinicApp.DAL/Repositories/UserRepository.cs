@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyClinicApp.DAL.Classes;
+using MyClinicApp.DAL.Models;
 using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.Domain.Classes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyClinicApp.DAL.DBContext;
+using MyClinicApp.DAL.Convert;
 
 namespace MyClinicApp.DAL.Repositories
 {

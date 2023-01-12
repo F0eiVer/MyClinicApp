@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyClinicApp.DAL.Classes;
+using MyClinicApp.DAL.Models;
 using MyClinicApp.DAL.Convert;
+using MyClinicApp.DAL.DBContext;
 using MyClinicApp.DAL.Interfaces;
 using MyClinicApp.Domain.Classes;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MyClinicApp.DAL.Repositories
 {
-    public class AppointmentRepository
+    public class AppointmentRepository : IAppointmentRepository
     {
         private readonly ApplicationDbContext db;
 

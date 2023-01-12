@@ -1,4 +1,4 @@
-﻿using MyClinicApp.DAL.Classes;
+﻿using MyClinicApp.DAL.Models;
 using MyClinicApp.Domain.Classes;
 using System;
 using System.Collections.Generic;

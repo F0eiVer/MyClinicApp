@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyClinicApp.DAL.Classes
+namespace MyClinicApp.DAL.Models
 {
     public class DoctorModel
     {

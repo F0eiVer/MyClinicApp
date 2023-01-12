@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyClinicApp.DAL.Models;
 using MyClinicApp.Domain.Classes;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyClinicApp.DAL.Classes
+namespace MyClinicApp.DAL.DBContext
 {
     public class ApplicationDbContext : DbContext
     {

@@ -16,9 +16,9 @@ namespace MyClinicApp.Service.Implementations
     {
         private readonly IUserRepository userRespository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository _userRepository)
         {
-            this.userRespository = userRepository;
+            userRespository = _userRepository;
         }
 
         public async Task<IBaseResponse<User>> Create(User entity)

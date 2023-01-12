@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyClinicApp.DAL.Classes
+namespace MyClinicApp.DAL.Models
 {
-    public class AppointmentModel
+    public class TimetableModel
     {
         public uint ID { get; set; }
-        
+
         public DateTime Date { get; set; }
+        public uint DoctorID { get; set; }
         public string StartTime { get; set; }
         public string FinishTime { get; set; }
-        public ulong PatientID { get; set; }
-        public ulong DoctorID { get; set; }
     }
 }
