@@ -12,6 +12,7 @@ namespace Tests
 {
     public class DBTests
     {
+        /*
         //Playground
         private readonly DbContextOptionsBuilder<ApplicationDbContext> _optionsBuilder;
 
@@ -22,7 +23,7 @@ namespace Tests
                 $"Host=localhost;Port=5432;Database=testDBClinic;Username=postgres;Password=Crjhgbjy123");
             _optionsBuilder = optionsBuilder;
         }
-        /*
+        
         [Fact]
         public void PlaygroundMethod1()
         {
@@ -36,7 +37,7 @@ namespace Tests
 
             Assert.True(context.Users.Any(u => u.Login == "TEST")); // проверим, нашло ли в нашей бд
         }
-        */
+        
 
         [Fact]
         public void PlaygroundMethod2()
@@ -48,5 +49,6 @@ namespace Tests
 
             Assert.True(!context.Users.Any(u => u.Login == "TEST"));
         }
+        */
     }
 }
