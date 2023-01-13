@@ -30,7 +30,7 @@ namespace MyClimicApp.API.Controllers
             }
 
             var userRes = await userService.Create(user);
-            if (userRes.Data == null)
+            if (userRes.Data.Equals(null))
             {
                 return Problem(statusCode: 404, detail: userRes.Description);
             }
@@ -54,7 +54,7 @@ namespace MyClimicApp.API.Controllers
             }
 
             var userRes = await userService.Create(userParams);
-            if (userRes.Data == null)
+            if (userRes.Data.Equals(null))
             {
                 return Problem(statusCode: 404, detail: userRes.Description);
             }
@@ -109,7 +109,7 @@ namespace MyClimicApp.API.Controllers
 
             var userRes = await userService.GetUserByLogin(login);
 
-            if(userRes.Data == null)
+            if(userRes.Data.Equals(null))
             {
                 return Problem(statusCode: 404, detail: userRes.Description);
             }

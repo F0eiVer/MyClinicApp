@@ -32,7 +32,7 @@ namespace MyClimicApp.API.Controllers
 
             var doctorRes = await doctorService.Create(doctor);
 
-            if (doctorRes.Data == null)
+            if (doctorRes.Data.Equals(null))
             {
                 return Problem(statusCode: 404, detail: doctorRes.Description);
             }
@@ -114,7 +114,7 @@ namespace MyClimicApp.API.Controllers
 
             var doctorRes = await doctorService.GetDoctorBySpecialization(specialization);
 
-            if(doctorRes.Data == null)
+            if(doctorRes.Data.Equals(null))
             {
                 int t = (int)MyClinicApp.Domain.Enum.StatusCode.DoesNotFind;
                 return Problem(statusCode: t, detail: doctorRes.Description);

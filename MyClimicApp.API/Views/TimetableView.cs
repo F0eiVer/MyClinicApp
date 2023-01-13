@@ -5,11 +5,6 @@ namespace MyClimicApp.API.Views
 {
     public class TimetableView
     {
-        [JsonPropertyName("id")]
-        public uint ID { get; set; }
-
-        [JsonPropertyName("date")]
-        public DateTime Date { get; set; }
 
         [JsonPropertyName("doctorID")]
         public uint DoctorID { get; set; }
