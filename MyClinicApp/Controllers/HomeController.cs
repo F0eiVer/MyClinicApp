@@ -16,6 +16,7 @@ namespace MyClinicApp.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+            UserSerchView userSerchView
             _logger = logger;
         }
 

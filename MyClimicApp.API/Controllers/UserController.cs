@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyClinicApp.Service.Implementations;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -6,9 +7,11 @@ namespace MyClimicApp.API.Controllers
     [Route("user")]
     public class UserController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly UserService userService;
+
+        public UserController(UserService _userService)
         {
-            return View();
+            userService = _userService;
         }
     }
 }

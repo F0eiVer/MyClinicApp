@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyClinicApp.Service.Implementations;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -6,9 +7,11 @@ namespace MyClimicApp.API.Controllers
     [Route("timetable")]
     public class TimetableController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly TimetableService timetableService;
+
+        public TimetableController(TimetableService _timetableService)
         {
-            return View();
+            timetableService = _timetableService;
         }
     }
 }

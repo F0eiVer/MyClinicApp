@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyClinicApp.Service.Implementations;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -6,9 +7,11 @@ namespace MyClimicApp.API.Controllers
     [Route("appointment")]
     public class AppointmentController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly AppointmentService appointmentService;
+
+        public AppointmentController(AppointmentService _appointmentService)
         {
-            return View();
+            appointmentService = _appointmentService;
         }
     }
 }
