@@ -17,7 +17,7 @@ namespace MyClinicApp.Service.Implementations
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository appointmentRespository;
-        private readonly ApplicationDbContext db; //need db connection
+        private readonly ApplicationDbContext db;
 
         public AppointmentService(IAppointmentRepository _appointmentRepository)
         {
