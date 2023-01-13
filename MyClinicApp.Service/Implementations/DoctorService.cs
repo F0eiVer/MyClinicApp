@@ -113,8 +113,7 @@ namespace MyClinicApp.Service.Implementations
                 if (doctors.Count == 0)
                 {
                     baseResponse.Description = "There are no doctors in the database.";
-                    //Possible 404 code in the future;
-                    baseResponse.StatusCode = StatusCode.OK;
+                    baseResponse.StatusCode = StatusCode.DoesNotFind;
                     return baseResponse;
                 }
 
