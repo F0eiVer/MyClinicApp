@@ -58,20 +58,20 @@ namespace MyClimicApp.API.Controllers
         }
 
         [HttpPost("timetableChange")]
-        public async Task<ActionResult<bool>> ChangeDoctorTimetable(Doctor doctor, Timetable timetable)
+        public async Task<ActionResult<bool>> ChangeDoctorTimetable(DoctorAndTimetable doctorAndTimetable)
         {
-            if (doctor.Equals(null))
+            if (doctorAndTimetable.doctor.Equals(null))
             {
                 int t = (int)MyClinicApp.Domain.Enum.StatusCode.DoesNotSetDoctor;
                 return Problem(statusCode: t, detail: "Не указан доктор");
             }
-            else if (timetable.Equals(null))
+            else if (doctorAndTimetable.timetable.Equals(null))
             {
                 int t = (int)MyClinicApp.Domain.Enum.StatusCode.DoesNotSetTimetable;
                 return Problem(statusCode: t, detail: "Не указано расписание");
             }
 
-            return Ok(await timetableService.ChangeDoctorTimetable(doctor, timetable));
+            return Ok(await timetableService.ChangeDoctorTimetable(doctorAndTimetable.doctor, doctorAndTimetable.timetable));
         }
     }
 }
