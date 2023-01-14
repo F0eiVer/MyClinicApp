@@ -21,7 +21,7 @@ namespace MyClimicApp.API.Controllers
             userService = _userService;
         }
 
-        [HttpGet("userCreate")]
+        [HttpPost("userCreate")]
         public async Task<ActionResult<UserView>> Create(User user)
         {
             if (user.Equals(null))
@@ -45,7 +45,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
-        [HttpGet("userParams")]
+        [HttpPost("userParams")]
         public async Task<ActionResult<UserView>> Create(UserParams userParams)
         {
             if (userParams.Equals(null))
@@ -69,7 +69,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
-        [HttpGet("userDelete")]
+        [HttpPost("userDelete")]
         public async Task<ActionResult<bool>> Delete(User user)
         {
             if (user.Equals(null))

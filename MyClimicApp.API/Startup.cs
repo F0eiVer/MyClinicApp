@@ -7,10 +7,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MyClinicApp.DAL.DBContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyClinicApp.DAL.Interfaces;
+using MyClinicApp.DAL.Repositories;
+using MyClinicApp.Service.Implementations;
 
 namespace MyClimicApp.API
 {
@@ -26,8 +31,13 @@ namespace MyClimicApp.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql($"Host=localhost;Port=5432;Database=testDBClinic;Username=postgres;Password=Crjhgbjy123"));
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<UserService>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyClimicApp.API", Version = "v1" });

@@ -21,7 +21,7 @@ namespace MyClimicApp.API.Controllers
             doctorService = _doctorService;
         }
 
-        [HttpGet("doctorCreate")]
+        [HttpPost("doctorCreate")]
         public async Task<ActionResult<DoctorView>> Create(Doctor doctor)
         {
             if (doctor.Equals(null))
@@ -45,7 +45,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
-        [HttpGet("doctorDelete")]
+        [HttpPost("doctorDelete")]
         public async Task<ActionResult<bool>> Delete(Doctor doctor)
         {
             if (doctor.Equals(null))

@@ -45,7 +45,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
-        [HttpGet("timetableAdd")]
+        [HttpPost("timetableAdd")]
         public async Task<ActionResult<bool>> AddDoctorTimetable(Timetable timetable)
         {
             if (timetable.Equals(null))
@@ -57,7 +57,7 @@ namespace MyClimicApp.API.Controllers
             return Ok(await timetableService.AddDoctorTimetable(timetable));
         }
 
-        [HttpGet("timetableChange")]
+        [HttpPost("timetableChange")]
         public async Task<ActionResult<bool>> ChangeDoctorTimetable(Doctor doctor, Timetable timetable)
         {
             if (doctor.Equals(null))

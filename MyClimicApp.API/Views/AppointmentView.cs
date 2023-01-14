@@ -5,11 +5,6 @@ namespace MyClimicApp.API.Views
 {
     public class AppointmentView
     {
-        [JsonPropertyName("id")]
-        public uint ID { get; set; }
-
-        [JsonPropertyName("date")]
-        public DateTime Date { get; set; }
 
         [JsonPropertyName("startTime")]
         public string StartTime { get; set; }
