@@ -274,6 +274,7 @@
   <ItemGroup>
     <Compile Include="Classes\Appointment.cs" />
     <Compile Include="Classes\Doctor.cs" />
+    <Compile Include="Classes\DoctorAndTimetable.cs" />
     <Compile Include="Classes\Role.cs" />
     <Compile Include="Classes\Specialization.cs" />
     <Compile Include="Classes\Timetable.cs" />

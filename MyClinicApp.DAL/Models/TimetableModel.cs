@@ -9,7 +9,6 @@ namespace MyClinicApp.DAL.Models
     public class TimetableModel
     {
         public uint ID { get; set; }
-
         public DateTime Date { get; set; }
         public uint DoctorID { get; set; }
         public string StartTime { get; set; }
