@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyClinicApp.DAL.Models;
 using MyClimicApp.API.Views;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -23,6 +24,7 @@ namespace MyClimicApp.API.Controllers
             appointmentService = _appointmentService;
         }
 
+        [Authorize]
         [HttpPost("appointmentSave")]
         public async Task<ActionResult<bool>> SaveAppointment(Appointment appointment, DateTime date)
         {

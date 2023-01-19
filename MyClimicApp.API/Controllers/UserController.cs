@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MyClinicApp.Domain.Classes;
 using MyClinicApp.Domain.Response;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -21,6 +22,7 @@ namespace MyClimicApp.API.Controllers
             userService = _userService;
         }
 
+        [Authorize]
         [HttpPost("userCreate")]
         public async Task<ActionResult<UserView>> Create(User user)
         {
@@ -30,10 +32,12 @@ namespace MyClimicApp.API.Controllers
             }
 
             var userRes = await userService.Create(user);
-            if (userRes.Data.Equals(null))
+
+            if(userRes.StatusCode != MyClinicApp.Domain.Enum.StatusCode.OK)
             {
                 return Problem(statusCode: 404, detail: userRes.Description);
             }
+
 
             return Ok(new UserView
             {
@@ -45,6 +49,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
+        [Authorize]
         [HttpPost("userParams")]
         public async Task<ActionResult<UserView>> Create(UserParams userParams)
         {
@@ -69,6 +74,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
+        [Authorize]
         [HttpPost("userDelete")]
         public async Task<ActionResult<bool>> Delete(User user)
         {
