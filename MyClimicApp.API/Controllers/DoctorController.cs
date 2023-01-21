@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyClimicApp.API.Views;
 using MyClinicApp.Domain.Classes;
 using MyClinicApp.Domain.Response;
@@ -21,6 +22,7 @@ namespace MyClimicApp.API.Controllers
             doctorService = _doctorService;
         }
 
+        [Authorize]
         [HttpPost("doctorCreate")]
         public async Task<ActionResult<DoctorView>> Create(Doctor doctor)
         {
@@ -45,6 +47,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
+        [Authorize]
         [HttpPost("doctorDelete")]
         public async Task<ActionResult<bool>> Delete(Doctor doctor)
         {

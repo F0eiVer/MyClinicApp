@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System;
 using MyClimicApp.API.Views;
 using System.Numerics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyClimicApp.API.Controllers
 {
@@ -45,6 +46,7 @@ namespace MyClimicApp.API.Controllers
             });
         }
 
+        [Authorize]
         [HttpPost("timetableAdd")]
         public async Task<ActionResult<bool>> AddDoctorTimetable(Timetable timetable)
         {
@@ -57,6 +59,7 @@ namespace MyClimicApp.API.Controllers
             return Ok(await timetableService.AddDoctorTimetable(timetable));
         }
 
+        [Authorize]
         [HttpPost("timetableChange")]
         public async Task<ActionResult<bool>> ChangeDoctorTimetable(DoctorAndTimetable doctorAndTimetable)
         {

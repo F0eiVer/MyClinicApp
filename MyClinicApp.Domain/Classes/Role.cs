@@ -9,5 +9,6 @@ namespace MyClinicApp.Domain.Classes
     public class Role
     {
         public ulong ID { get; set; }
+        public string role { get; set; }
     }
 }
